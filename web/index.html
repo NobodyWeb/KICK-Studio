@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark">
+  <title>Kick Studio</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<svg class="icon-sprite" aria-hidden="true">
+  <symbol id="i-live" viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><path d="M8.5 8.5a5 5 0 0 0 0 7M15.5 8.5a5 5 0 0 1 0 7M5.6 5.6a9 9 0 0 0 0 12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></symbol>
+  <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4"/><path d="M5 17v3h14v-3"/></symbol>
+  <symbol id="i-clip" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M7 5v14M17 5v14M3 10h4M17 10h4M3 14h4M17 14h4"/></symbol>
+  <symbol id="i-robot" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="13" rx="4"/><path d="M12 3v4M8.5 13h.01M15.5 13h.01M9 17h6"/><circle cx="12" cy="3" r="1.2"/></symbol>
+  <symbol id="i-settings" viewBox="0 0 24 24"><path d="M12 8.5a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7Z"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-1.42 1.42-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1 1.55V20h-2v-.09a1.7 1.7 0 0 0-1-1.55 1.7 1.7 0 0 0-1.88.34l-.06.06-1.42-1.42.06-.06A1.7 1.7 0 0 0 9.5 15a1.7 1.7 0 0 0-1.55-1H8v-2h.09a1.7 1.7 0 0 0 1.55-1 1.7 1.7 0 0 0-.34-1.88l-.06-.06 1.42-1.42.06.06A1.7 1.7 0 0 0 12.6 8a1.7 1.7 0 0 0 1-1.55V6h2v.09a1.7 1.7 0 0 0 1 1.55 1.7 1.7 0 0 0 1.88-.34l.06-.06 1.42 1.42-.06.06A1.7 1.7 0 0 0 19.6 10a1.7 1.7 0 0 0 1.55 1H21v2h-.09a1.7 1.7 0 0 0-1.51 2Z"/></symbol>
+  <symbol id="i-logs" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="m7 9 3 3-3 3M13 15h4"/></symbol>
+  <symbol id="i-folder" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7Z"/></symbol>
+  <symbol id="i-stop" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/></symbol>
+  <symbol id="i-trash" viewBox="0 0 24 24"><path d="M4 7h16M9 7V4h6v3M7 7l1 13h8l1-13M10 11v5M14 11v5"/></symbol>
+  <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+  <symbol id="i-refresh" viewBox="0 0 24 24"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="m16 16 4 4"/></symbol>
+  <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5"/></symbol>
+  <symbol id="i-chevron" viewBox="0 0 24 24"><path d="m8 10 4 4 4-4"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.2"/><path d="M3.5 20a5.5 5.5 0 0 1 11 0M16 5.5a3 3 0 0 1 0 5.8M17 14.2a5 5 0 0 1 3.5 4.8"/></symbol>
+  <symbol id="i-disk" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M8 4v6h8V4M8 20v-6h8v6"/></symbol>
+  <symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a4 4 0 0 0 5.66 0l3-3a4 4 0 0 0-5.66-5.66l-1.3 1.3M14 11a4 4 0 0 0-5.66 0l-3 3a4 4 0 0 0 5.66 5.66l1.3-1.3"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 11v5M12 8h.01"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="m12 4 9 16H3Z"/><path d="M12 9v5M12 17h.01"/></symbol>
+  <symbol id="i-edit" viewBox="0 0 24 24"><path d="m4 16-.5 4.5L8 20l10.5-10.5a2.1 2.1 0 0 0-3-3Z"/><path d="m13.5 7.5 3 3"/></symbol>
+  <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 4h12l2 2v14H5Z"/><path d="M8 4v6h8V4M8 20v-6h8v6"/></symbol>
+  <symbol id="i-power" viewBox="0 0 24 24"><path d="M12 3v9"/><path d="M7 6.5a8 8 0 1 0 10 0"/></symbol>
+  <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2"/></symbol>
+  <symbol id="i-film" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M8 4v16M16 4v16M3 9h5M16 9h5M3 15h5M16 15h5"/></symbol>
+  <symbol id="i-eye" viewBox="0 0 24 24"><path d="M3 12s3.5-6 9-6 9 6 9 6-3.5 6-9 6-9-6-9-6Z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+  <symbol id="i-wand" viewBox="0 0 24 24"><path d="m5 19 9-9M14 5l1 2 2 1-2 1-1 2-1-2-2-1 2-1ZM18 12l.7 1.3L20 14l-1.3.7L18 16l-.7-1.3L16 14l1.3-.7Z"/></symbol>
+</svg>
+
+<div class="app-shell">
+  <aside class="sidebar">
+    <div class="brand">
+      <img class="brand-mark" src="icon.png" alt="Kick Studio">
+      <div class="brand-text">
+        <strong>KICK<span>STUDIO</span></strong>
+        <small>ضبط و دانلود حرفه‌ای</small>
+      </div>
+    </div>
+
+    <nav class="nav" aria-label="منوی اصلی">
+      <button class="nav-item active" data-page="live">
+        <span class="nav-icon"><svg><use href="#i-live"/></svg></span>
+        <span><b>ضبط زنده</b><small>Live DVR</small></span>
+      </button>
+      <button class="nav-item" data-page="download">
+        <span class="nav-icon"><svg><use href="#i-download"/></svg></span>
+        <span><b>دانلود</b><small>VOD و کلیپ</small></span>
+      </button>
+      <button class="nav-item" data-page="auto">
+        <span class="nav-icon"><svg><use href="#i-robot"/></svg></span>
+        <span><b>ضبط خودکار</b><small>Auto Recorder</small></span>
+        <span class="nav-badge" id="nav-auto-count">0</span>
+      </button>
+      <div class="nav-sep"></div>
+      <button class="nav-item" data-page="settings">
+        <span class="nav-icon"><svg><use href="#i-settings"/></svg></span>
+        <span><b>تنظیمات</b><small>Settings</small></span>
+      </button>
+      <button class="nav-item" data-page="logs">
+        <span class="nav-icon"><svg><use href="#i-logs"/></svg></span>
+        <span><b>گزارش‌ها</b><small>Logs</small></span>
+      </button>
+    </nav>
+
+    <div class="sidebar-foot">
+      <div class="lang-switch" id="lang-switch" role="group" aria-label="زبان">
+        <button type="button" data-lang="fa" class="active" data-no-i18n>فارسی</button>
+        <button type="button" data-lang="en" data-no-i18n>English</button>
+      </div>
+      <div class="tool-chip" id="tool-chip">
+        <span class="dot ok"></span>
+        <div><b id="tool-chip-title">در حال بررسی…</b><small id="tool-chip-sub">FFmpeg</small></div>
+      </div>
+      <div class="version-line"><span>Kick Studio</span><span>v3.0</span></div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div class="topbar-title">
+        <span class="eyebrow" id="page-eyebrow">LIVE DVR</span>
+        <h1 id="page-title">ضبط زنده</h1>
+        <p id="page-subtitle">از ابتدای پخش زنده، با کیفیت دلخواه ضبط کنید.</p>
+      </div>
+      <div class="topbar-actions">
+        <div class="status-pill" id="top-status"><span class="dot"></span><span>اتصال…</span></div>
+        <button class="icon-btn" id="btn-refresh" title="به‌روزرسانی"><svg><use href="#i-refresh"/></svg></button>
+        <button class="icon-btn" id="btn-open-downloads" title="باز کردن پوشه دانلود"><svg><use href="#i-folder"/></svg></button>
+      </div>
+    </header>
+
+    <div class="content">
+      <!-- ============================== LIVE ============================== -->
+      <section class="page active" id="page-live">
+        <div class="hero-grid">
+          <div class="card setup-card">
+            <div class="card-head">
+              <div>
+                <span class="eyebrow accent">LIVE DVR</span>
+                <h2>یک کانال را برای ضبط آماده کنید</h2>
+                <p>لینک کانال Kick را وارد کنید؛ کیفیت منبع و خروجی را انتخاب کنید و ضبط را شروع کنید.</p>
+              </div>
+              <div class="card-orb"><svg><use href="#i-live"/></svg></div>
+            </div>
+
+            <div class="field">
+              <label for="live-url">لینک کانال</label>
+              <div class="input-row">
+                <div class="input-wrap">
+                  <svg class="input-icon"><use href="#i-link"/></svg>
+                  <input id="live-url" type="text" placeholder="https://kick.com/channel" autocomplete="off" spellcheck="false">
+                </div>
+                <button class="btn primary" id="live-probe"><svg><use href="#i-search"/></svg><span>بررسی کانال</span></button>
+              </div>
+            </div>
+
+            <div id="live-offline" class="notice warn hidden">
+              <svg><use href="#i-info"/></svg>
+              <div><b id="live-offline-title">این کانال لایو نیست.</b><span>به محض لایو شدن می‌توانید ضبط را شروع کنید یا از ضبط خودکار استفاده کنید.</span></div>
+            </div>
+
+            <div id="live-preview" class="live-preview hidden">
+              <div class="channel-hero">
+                <div class="avatar-wrap"><img id="live-avatar" alt=""></div>
+                <div class="channel-main">
+                  <div class="channel-name-line">
+                    <h3 id="live-name">Channel</h3>
+                    <span class="live-badge"><span class="pulse"></span> LIVE</span>
+                    <span class="soft-badge hidden" id="live-dvr-badge">DVR</span>
+                  </div>
+                  <p id="live-stream-title">—</p>
+                  <div class="channel-meta">
+                    <span><svg><use href="#i-users"/></svg><b id="live-viewers">0</b> بیننده</span>
+                    <span><svg><use href="#i-clock"/></svg><b id="live-time">—</b></span>
+                    <span id="live-category"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="settings-grid">
+                <div class="field">
+                  <label for="live-source">کیفیت منبع</label>
+                  <select id="live-source"></select>
+                  <small class="hint">کیفیت دریافتی از Kick؛ روی حجم اینترنت و دیسک اثر می‌گذارد.</small>
+                </div>
+                <div class="field">
+                  <label for="live-profile">پروفایل خروجی</label>
+                  <select id="live-profile" data-profile-select="live"></select>
+                  <small class="hint" id="live-profile-summary">—</small>
+                </div>
+              </div>
+
+              <button class="advanced-toggle" id="live-advanced-toggle" type="button">
+                <svg><use href="#i-chevron"/></svg>
+                <span>تنظیمات حرفه‌ای کیفیت و بیت‌ریت</span>
+              </button>
+              <div class="advanced hidden" id="live-advanced">
+                <div class="rate-modes" data-rate-modes="live" role="group" aria-label="حالت کنترل کیفیت">
+                  <button type="button" class="rate-mode active" data-rate-mode="crf">
+                    <b>کیفیت ثابت (CRF)</b><small>حجم و کیفیت متعادل</small>
+                  </button>
+                  <button type="button" class="rate-mode" data-rate-mode="bitrate">
+                    <b>بیت‌ریت ثابت</b><small>حجم تقریبی مشخص</small>
+                  </button>
+                </div>
+                <div class="settings-grid four">
+                  <div class="field"><label>حداکثر ارتفاع</label><select data-pf="live" data-key="max_height"></select></div>
+                  <div class="field" data-rate-field="crf">
+                    <label>CRF (کیفیت)</label>
+                    <input data-pf="live" data-key="crf" type="number" min="0" max="51" step="1">
+                    <small class="hint">بین ۰ تا ۵۱ (کمتر = کیفیت بالاتر)</small>
+                  </div>
+                  <div class="field" data-rate-field="bitrate">
+                    <label>بیت‌ریت ویدیو</label>
+                    <div class="unit-input">
+                      <input data-pf="live" data-key="video_bitrate" type="number" min="200" max="80000" step="100" inputmode="numeric">
+                      <span class="unit">kbps</span>
+                    </div>
+                    <small class="hint" data-rate-hint="live">برای 1080p حدود ۴ تا ۸ مگابیت و برای 720p حدود ۲ تا ۴ مگابیت مناسب است.</small>
+                  </div>
+                  <div class="field"><label>بیت‌ریت صدا</label><select data-pf="live" data-key="audio_bitrate"></select></div>
+                  <div class="field"><label>محدودیت FPS</label><select data-pf="live" data-key="fps"></select></div>
+                  <div class="field"><label>Preset</label><select data-pf="live" data-key="preset"></select></div>
+                  <div class="field span-2"><label>آرگومان‌های اضافه FFmpeg (اختیاری)</label><input data-pf="live" data-key="extra_args" type="text" placeholder="-tune film …"></div>
+                </div>
+                <div class="output-summary" data-rate-summary="live">
+                  <small>خروجی نهایی</small>
+                  <b>—</b>
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="live-folder">پوشه ذخیره</label>
+                <div class="input-row">
+                  <div class="input-wrap"><svg class="input-icon"><use href="#i-folder"/></svg><input id="live-folder" type="text" dir="ltr" placeholder="Recordings"></div>
+                  <button class="btn ghost" data-choose="live-folder" title="انتخاب پوشه"><svg><use href="#i-folder"/></svg></button>
+                </div>
+              </div>
+
+              <div class="field">
+                <label>حالت ضبط</label>
+                <div class="mode-select" id="live-start-mode" role="group" aria-label="حالت ضبط">
+                  <button type="button" class="mode-option active" data-start-mode="start">
+                    <span class="mode-icon"><svg><use href="#i-clock"/></svg></span>
+                    <span><b>از ابتدا تا انتها</b><small>اگر DVR موجود باشد، از اولین لحظه پخش ضبط می‌شود و تا پایان ادامه می‌یابد.</small></span>
+                  </button>
+                  <button type="button" class="mode-option" data-start-mode="now">
+                    <span class="mode-icon"><svg><use href="#i-play"/></svg></span>
+                    <span><b>فقط از زمان حال</b><small>ضبط از همین لحظه شروع می‌شود و تا پایان پخش ادامه دارد.</small></span>
+                  </button>
+                </div>
+                <small class="hint" id="live-start-mode-hint">برای حالت «از ابتدا»، DVR باید در دسترس باشد.</small>
+              </div>
+
+              <div class="form-actions">
+                <button class="btn primary large" id="live-start" disabled><svg><use href="#i-play"/></svg><span>شروع ضبط زنده</span></button>
+                <span class="inline-hint" id="live-start-hint">ابتدا کانال را بررسی کنید.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="side-stack">
+            <div class="card stats-card">
+              <div class="card-head compact"><h3>وضعیت سیستم</h3><span class="eyebrow">SYSTEM</span></div>
+              <div class="stat-grid two">
+                <div class="stat"><span class="stat-icon"><svg><use href="#i-film"/></svg></span><div><small>FFmpeg</small><b id="stat-ffmpeg">—</b></div></div>
+                <div class="stat"><span class="stat-icon"><svg><use href="#i-live"/></svg></span><div><small>ضبط فعال</small><b id="stat-active">0</b></div></div>
+                <div class="stat"><span class="stat-icon"><svg><use href="#i-robot"/></svg></span><div><small>ضبط خودکار</small><b id="stat-auto">0</b></div></div>
+                <div class="stat"><span class="stat-icon"><svg><use href="#i-disk"/></svg></span><div><small>فضای آزاد</small><b id="stat-space">—</b></div></div>
+              </div>
+            </div>
+
+            <div class="card tips-card">
+              <div class="card-head compact"><h3>نکته‌های سریع</h3><span class="eyebrow">TIPS</span></div>
+              <ul class="tips">
+                <li><span>01</span><p>برای کیفیت اصلی و بدون فشار CPU، پروفایل «کپی مستقیم» را انتخاب کنید.</p></li>
+                <li><span>02</span><p>اگر پخش قطع و وصل شود، هر بخش به‌صورت خودکار ادامه داده می‌شود.</p></li>
+                <li><span>03</span><p>هر پخش زنده در یک فایل جداگانه ذخیره می‌شود؛ حتی اگر چند بار قطع شود.</p></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+
+        <div class="section-head">
+          <div><span class="eyebrow">RECORDINGS</span><h2>ضبط‌های فعال و اخیر</h2></div>
+          <button class="btn ghost sm" id="live-clear"><svg><use href="#i-trash"/></svg><span>پاک کردن تاریخچه</span></button>
+        </div>
+        <div id="live-sessions" class="list-stack"></div>
+      </section>
+
+      <!-- ============================ DOWNLOAD ============================ -->
+      <section class="page" id="page-download">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <span class="eyebrow accent">DOWNLOAD</span>
+              <h2>دانلود مستقیم VOD و کلیپ</h2>
+              <p>لینک مستقیم بگذارید یا فهرست کانال را بارگذاری کنید. دانلودها مستقل از ضبط زنده اجرا می‌شوند.</p>
+            </div>
+            <div class="card-orb"><svg><use href="#i-download"/></svg></div>
+          </div>
+
+          <div class="tabs" id="dl-tabs">
+            <button class="tab active" data-dl-tab="vod"><svg><use href="#i-film"/></svg>ویدیو (VOD)</button>
+            <button class="tab" data-dl-tab="clip"><svg><use href="#i-clip"/></svg>کلیپ</button>
+          </div>
+
+          <div class="field">
+            <label for="dl-urls">لینک‌ها <small>(هر خط یک لینک)</small></label>
+            <textarea id="dl-urls" rows="3" dir="ltr" spellcheck="false" placeholder="https://kick.com/channel/videos/…&#10;https://kick.com/channel/clips/clip_…&#10;https://example.com/stream.m3u8"></textarea>
+          </div>
+
+          <div class="toolbar wrap">
+            <button class="btn secondary" id="dl-probe"><svg><use href="#i-search"/></svg><span>بررسی لینک</span></button>
+            <button class="btn ghost" id="dl-load"><svg><use href="#i-refresh"/></svg><span>بارگذاری فهرست کانال</span></button>
+            <select id="dl-range" class="mini-select hidden" title="بازه کلیپ‌ها">
+              <option value="week">این هفته</option>
+              <option value="day">امروز</option>
+              <option value="month">این ماه</option>
+              <option value="all">همه</option>
+            </select>
+            <button class="btn ghost sm hidden" id="dl-select-all"><svg><use href="#i-check"/></svg><span>انتخاب همه</span></button>
+            <span class="toolbar-spacer"></span>
+            <span class="inline-hint" id="dl-selected">موردی انتخاب نشده</span>
+            <button class="btn primary" id="dl-start"><svg><use href="#i-download"/></svg><span>دانلود</span></button>
+          </div>
+
+          <div id="dl-probe-result" class="probe-result hidden"></div>
+          <div id="dl-list" class="media-list"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head compact"><h3>تنظیمات دانلود</h3><span class="eyebrow">OUTPUT</span></div>
+          <div class="settings-grid">
+            <div class="field">
+              <label for="dl-source">کیفیت منبع</label>
+              <select id="dl-source"><option value="auto">خودکار (بهترین کیفیت)</option></select>
+              <small class="hint">برای لینک مستقیم، در صورت وجود، همه کیفیت‌ها نمایش داده می‌شوند.</small>
+            </div>
+            <div class="field">
+              <label for="dl-profile">پروفایل خروجی</label>
+              <select id="dl-profile" data-profile-select="dl"></select>
+              <small class="hint" id="dl-profile-summary">—</small>
+            </div>
+          </div>
+
+          <button class="advanced-toggle" id="dl-advanced-toggle" type="button">
+            <svg><use href="#i-chevron"/></svg>
+            <span>تنظیمات حرفه‌ای کیفیت و بیت‌ریت</span>
+          </button>
+          <div class="advanced hidden" id="dl-advanced">
+            <div class="rate-modes" data-rate-modes="dl" role="group" aria-label="حالت کنترل کیفیت">
+              <button type="button" class="rate-mode active" data-rate-mode="crf">
+                <b>کیفیت ثابت (CRF)</b><small>حجم و کیفیت متعادل</small>
+              </button>
+              <button type="button" class="rate-mode" data-rate-mode="bitrate">
+                <b>بیت‌ریت ثابت</b><small>حجم تقریبی مشخص</small>
+              </button>
+            </div>
+            <div class="settings-grid four">
+              <div class="field"><label>حداکثر ارتفاع</label><select data-pf="dl" data-key="max_height"></select></div>
+              <div class="field" data-rate-field="crf">
+                <label>CRF (کیفیت)</label>
+                <input data-pf="dl" data-key="crf" type="number" min="0" max="51" step="1">
+                <small class="hint">بین ۰ تا ۵۱ (کمتر = کیفیت بالاتر)</small>
+              </div>
+              <div class="field" data-rate-field="bitrate">
+                <label>بیت‌ریت ویدیو</label>
+                <div class="unit-input">
+                  <input data-pf="dl" data-key="video_bitrate" type="number" min="200" max="80000" step="100" inputmode="numeric">
+                  <span class="unit">kbps</span>
+                </div>
+                <small class="hint" data-rate-hint="dl">برای 1080p حدود ۴ تا ۸ مگابیت و برای 720p حدود ۲ تا ۴ مگابیت مناسب است.</small>
+              </div>
+              <div class="field"><label>بیت‌ریت صدا</label><select data-pf="dl" data-key="audio_bitrate"></select></div>
+              <div class="field"><label>محدودیت FPS</label><select data-pf="dl" data-key="fps"></select></div>
+              <div class="field"><label>Preset</label><select data-pf="dl" data-key="preset"></select></div>
+              <div class="field span-2"><label>آرگومان‌های اضافه FFmpeg (اختیاری)</label><input data-pf="dl" data-key="extra_args" type="text" placeholder="-tune film …"></div>
+            </div>
+            <div class="output-summary" data-rate-summary="dl">
+              <small>خروجی نهایی</small>
+              <b>—</b>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="dl-folder">پوشه ذخیره</label>
+            <div class="input-row">
+              <div class="input-wrap"><svg class="input-icon"><use href="#i-folder"/></svg><input id="dl-folder" type="text" dir="ltr" placeholder="Recordings"></div>
+              <button class="btn ghost" data-choose="dl-folder" title="انتخاب پوشه"><svg><use href="#i-folder"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-head">
+          <div><span class="eyebrow">DOWNLOADS</span><h2>دانلودهای فعال و اخیر</h2></div>
+          <button class="btn ghost sm" id="dl-clear"><svg><use href="#i-trash"/></svg><span>پاک کردن تاریخچه</span></button>
+        </div>
+        <div id="downloads-list" class="list-stack"></div>
+      </section>
+
+      <!-- ============================== AUTO ============================== -->
+      <section class="page" id="page-auto">
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <span class="eyebrow accent">AUTO RECORDER</span>
+              <h2>ضبط خودکار استریمرها</h2>
+              <p>استریمرها را یک بار اضافه کنید؛ هر زمان لایو شوند با تنظیمات خودشان ضبط می‌شوند.</p>
+            </div>
+            <label class="switch big">
+              <input type="checkbox" id="auto-enabled">
+              <span class="switch-ui"></span>
+              <span class="switch-label">فعال</span>
+            </label>
+          </div>
+
+          <div class="add-streamer">
+            <div class="field grow">
+              <label for="auto-url">افزودن استریمر</label>
+              <div class="input-wrap"><svg class="input-icon"><use href="#i-link"/></svg><input id="auto-url" type="text" placeholder="https://kick.com/channel" spellcheck="false"></div>
+            </div>
+            <div class="field">
+              <label for="auto-source">کیفیت منبع</label>
+              <select id="auto-source">
+                <option value="auto">بهترین موجود</option>
+                <option value="1080">حداکثر 1080p</option>
+                <option value="720" selected>حداکثر 720p</option>
+                <option value="480">حداکثر 480p</option>
+                <option value="360">حداکثر 360p</option>
+                <option value="worst">کمترین</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="auto-profile">پروفایل خروجی</label>
+              <select id="auto-profile" data-profile-select="auto"></select>
+            </div>
+            <button class="btn primary" id="auto-add"><svg><use href="#i-plus"/></svg><span>افزودن</span></button>
+          </div>
+
+          <div class="global-strip">
+            <div class="field inline"><label>بازه بررسی (ثانیه)</label><input id="auto-interval" type="number" min="10" max="600"></div>
+            <div class="field inline"><label>مهلت قطعی (ثانیه)</label><input id="auto-gap" type="number" min="10" max="1800"></div>
+            <div class="field inline"><label>حداکثر ضبط همزمان</label><input id="auto-max" type="number" min="1" max="20"></div>
+            <button class="btn ghost sm" id="auto-save-global"><svg><use href="#i-save"/></svg><span>ذخیره</span></button>
+            <button class="btn ghost sm" id="auto-check"><svg><use href="#i-refresh"/></svg><span>بررسی فوری</span></button>
+            <span class="toolbar-spacer"></span>
+            <small class="inline-hint" id="auto-meta">—</small>
+          </div>
+        </div>
+
+        <div id="auto-list" class="list-stack"></div>
+
+        <div class="card">
+          <div class="card-head compact"><h3>رویدادهای ضبط خودکار</h3><span class="eyebrow">ACTIVITY</span></div>
+          <div id="auto-activity" class="activity"></div>
+        </div>
+      </section>
+
+      <!-- ============================ SETTINGS =========================== -->
+      <section class="page" id="page-settings">
+        <div class="hero-grid">
+          <div class="card">
+            <div class="card-head">
+              <div><span class="eyebrow accent">SETTINGS</span><h2>تنظیمات برنامه</h2><p>مسیر ذخیره، FFmpeg و رفتار ضبط خودکار را مدیریت کنید.</p></div>
+              <div class="card-orb"><svg><use href="#i-settings"/></svg></div>
+            </div>
+
+            <div class="field">
+              <label for="set-download-dir">پوشه پیش‌فرض دانلود</label>
+              <div class="input-row">
+                <div class="input-wrap"><svg class="input-icon"><use href="#i-folder"/></svg><input id="set-download-dir" type="text" dir="ltr"></div>
+                <button class="btn ghost" data-choose="set-download-dir"><svg><use href="#i-folder"/></svg></button>
+                <button class="btn ghost" id="set-open-folder"><svg><use href="#i-external"/></svg></button>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="set-ffmpeg">مسیر FFmpeg</label>
+              <div class="input-row">
+                <div class="input-wrap"><svg class="input-icon"><use href="#i-film"/></svg><input id="set-ffmpeg" type="text" dir="ltr" placeholder="خودکار"></div>
+                <button class="btn secondary" id="ffmpeg-install"><svg><use href="#i-download"/></svg><span>نصب خودکار</span></button>
+              </div>
+              <div id="ffmpeg-status" class="ffmpeg-status">در حال بررسی…</div>
+              <div class="progress slim hidden" id="ffmpeg-progress"><div class="progress-fill" style="width:0%"></div></div>
+            </div>
+
+            <div class="settings-grid">
+              <div class="field"><label for="set-max-downloads">حداکثر دانلود همزمان</label><input id="set-max-downloads" type="number" min="1" max="8"></div>
+              <div class="field"><label for="set-profile">پروفایل خروجی پیش‌فرض</label><select id="set-profile" data-profile-select="set"></select></div>
+            </div>
+
+            <label class="check-card">
+              <input type="checkbox" id="set-keep-parts">
+              <span class="check-ui"></span>
+              <span><b>نگه داشتن فایل‌های موقت</b><small>فایل TS/MKV بعد از ساخت MP4 حذف نشود.</small></span>
+            </label>
+
+            <div class="field">
+              <label for="set-cookie">کوکی Kick (اختیاری)</label>
+              <input id="set-cookie" type="password" dir="ltr" autocomplete="off" placeholder="برای محتوای محدود یا رفع محدودیت Cloudflare">
+              <small class="hint" id="set-cookie-hint">اگر مقداردهی شده باشد، در درخواست‌ها استفاده می‌شود.</small>
+            </div>
+
+            <div class="form-actions">
+              <button class="btn primary" id="set-save"><svg><use href="#i-save"/></svg><span>ذخیره تنظیمات</span></button>
+              <span class="inline-hint" id="settings-save-hint"></span>
+            </div>
+          </div>
+
+          <aside class="side-stack">
+            <div class="card">
+              <div class="card-head compact"><h3>اطلاعات سیستم</h3><span class="eyebrow">ABOUT</span></div>
+              <div class="info-list">
+                <div><span>نسخه</span><b id="info-version">3.0</b></div>
+                <div><span>FFmpeg</span><b id="info-ffmpeg">—</b></div>
+                <div><span>انکودرها</span><b id="info-encoders">—</b></div>
+                <div><span>پوشه دانلود</span><b id="info-download-dir" class="ltr">—</b></div>
+                <div><span>فضای آزاد</span><b id="info-space">—</b></div>
+              </div>
+            </div>
+            <div class="card tips-card">
+              <div class="card-head compact"><h3>درباره کیفیت</h3><span class="eyebrow">QUALITY</span></div>
+              <ul class="tips">
+                <li><span>01</span><p>کیفیت منبع همان چیزی است که از Kick دانلود می‌شود.</p></li>
+                <li><span>02</span><p>پروفایل خروجی می‌تواند فایل را کوچک‌تر کند، اما بیت‌ریت اینترنت را کم نمی‌کند.</p></li>
+                <li><span>03</span><p>برای هر بیت‌ریت دلخواه، حالت «سفارشی» و عدد kbps را انتخاب کنید.</p></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- ============================== LOGS ============================== -->
+      <section class="page" id="page-logs">
+        <div class="card logs-card">
+          <div class="card-head compact">
+            <div><span class="eyebrow accent">LOGS</span><h2>گزارش زنده</h2></div>
+            <div class="toolbar">
+              <select id="log-filter" class="mini-select">
+                <option value="all">همه</option>
+                <option value="info">اطلاعات</option>
+                <option value="success">موفق</option>
+                <option value="warn">هشدار</option>
+                <option value="error">خطا</option>
+              </select>
+              <label class="mini-check"><input type="checkbox" id="log-autoscroll" checked> اسکرول خودکار</label>
+              <button class="btn ghost sm" id="log-clear"><svg><use href="#i-trash"/></svg><span>پاک کردن</span></button>
+            </div>
+          </div>
+          <div id="log-list" class="log-list"><div class="empty small">در حال بارگذاری گزارش‌ها…</div></div>
+        </div>
+      </section>
+    </div>
+  </main>
+</div>
+
+<div class="modal-root hidden" id="modal-root"></div>
+<div class="toast-root" id="toasts"></div>
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

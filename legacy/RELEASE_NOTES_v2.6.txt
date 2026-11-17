@@ -1,0 +1,24 @@
+KICK STUDIO v2.6 — RELEASE NOTES
+================================
+
+1. Replaced the entire Persian interface, status messages, and user-facing errors with English.
+2. Refreshed the WinForms layout with a dark workspace, shared channel/output settings, and three task tabs.
+3. Added channel VOD library loading and selected-VOD MP4 downloads.
+4. Added channel clip library loading and selected-clip MP4 downloads.
+5. Added four output profiles: Original copy, Balanced 720p, Compact 720p, and Compact 480p.
+6. Added H.264/AAC re-encoding profiles with output bitrate caps to reduce saved-file size.
+7. The output profile is shared across Live DVR, VOD, and Clip tasks. Compact (720p) is the default.
+8. The default live source rendition is 720p60 when available.
+9. Temporary TS/MKV source files are deleted after successful MP4 remux unless the user enables the keep-source option.
+10. Progress display separates media duration from wall-clock elapsed time and shows FFmpeg speed and average output bitrate when available.
+11. Temporary files are preserved if MP4 finalization fails.
+
+IMPORTANT DVR NOTE
+------------------
+The live DVR playlist can contain a large historical backfill. FFmpeg may download that backfill much faster than real time. A large file written in a short wall-clock interval does not necessarily mean only that short interval of video was captured. The UI now reports media duration separately from wall-clock duration.
+
+STORAGE VS NETWORK TRAFFIC
+--------------------------
+H.264 compression profiles reduce the size of the saved MP4, but they do not reduce the bytes downloaded from Kick. To reduce network traffic, select a lower source rendition (for example 480p or 360p). To reduce disk usage while retaining a 720p output, use Compact (720p).
+
+The script was updated for Windows PowerShell 5.1 compatibility. It has not been executed on a Windows Server host in this build environment; test first with a short VOD/clip and then a short live DVR session.
