@@ -13,6 +13,7 @@ import argparse
 import os
 import secrets
 import sys
+import threading
 import time
 import traceback
 import webbrowser
@@ -124,7 +125,6 @@ def set_window_icon(title: str) -> None:
     def worker() -> None:
         try:
             import ctypes
-            import threading
 
             from ctypes import wintypes
 
