@@ -352,7 +352,6 @@ const I18N_EN = [
   ["ضبط دوباره از ابتدا", "Record again from the start"],
   ["ضبط مجدد", "Re-record"],
   ["ضبط این پخش متوقف شده است.", "Recording of this broadcast was stopped."],
-  ["حالت ضبط برای پخش‌های بعدی هم اعمال می‌شود.", "The mode also applies to future broadcasts."],
   ["ضبط دوباره از ابتدا آغاز شد.", "Recording restarted from the beginning."],
   ["خطای سرور ({status})", "Server error ({status})"],
   ["بررسی بعدی: {n} ثانیه", "Next check in {n}s"],

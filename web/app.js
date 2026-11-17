@@ -1374,6 +1374,7 @@ function autoStatus(item) {
   const status = item.status || {};
   if (status.error) return { cls: "error", label: "خطا" };
   if (status.recording) return { cls: "recording", label: "در حال ضبط" };
+  if (status.dismissed) return { cls: "waiting", label: "متوقف" };
   if (status.waiting_slot) return { cls: "waiting", label: "در صف" };
   if (status.live) return { cls: "live", label: "لایو" };
   if (status.session_state === "waiting") return { cls: "waiting", label: "انتظار" };
@@ -1392,6 +1393,7 @@ function autoCard(item) {
   bits.push(profileSummary(item.output));
   if (item.folder) bits.push(item.folder);
   if (status.error) bits.push(status.error);
+  if (status.dismissed) bits.push(t("ضبط این پخش متوقف شده است."));
 
   const actions = [];
   if (status.recording && status.session_id) {
