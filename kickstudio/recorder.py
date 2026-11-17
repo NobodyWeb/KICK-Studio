@@ -587,10 +587,12 @@ class LiveSession:
                             self.add_log("یک پخش زنده جدید شروع شده؛ این جلسه بسته می‌شود.", "warn")
                             self.stop_requested = True
                             break
-                        use_from_start = bool(chosen_media.get("dvr"))
+                        use_from_start = bool(
+                            self.from_start and self.used_from_start and chosen_media.get("dvr")
+                        )
                         # The DVR playlist starts at the broadcast start, so seek to
-                        # the duration already captured.  Without DVR we use the live
-                        # edge and accept a tiny gap.
+                        # the duration already captured.  A "from now" session (or one
+                        # without DVR) simply resumes at the live edge.
                         seek = (self.total_media_seconds + 0.2) if use_from_start else 0.0
                         self.channel = chosen_media.get("channel") or self.channel
 
