@@ -15,6 +15,7 @@ jobs:
   windows:
     name: Windows executable
     runs-on: windows-latest
+
     steps:
       - name: Checkout
         uses: actions/checkout@v7
@@ -46,9 +47,14 @@ jobs:
           path: KickStudio-windows.zip
           if-no-files-found: error
 
-      - name: Publish release
+      - name: Publish GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
+          tag_name: ${{ github.ref_name }}
+          name: KickStudio ${{ github.ref_name }}
           files: KickStudio-windows.zip
           generate_release_notes: true
+          draft: false
+          prerelease: false
+          fail_on_unmatched_files: true
